@@ -1,4 +1,3 @@
-import Link from "next/link";
 import A from './A'
 import style from '../styles/navbar.module.css'
 
