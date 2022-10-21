@@ -1,4 +1,5 @@
 import MainContainer from '../../component/MainContainer'
+import {NextPageContext} from "next";
 
 export default function ({user}) {
     console.log(user)
@@ -12,7 +13,13 @@ export default function ({user}) {
     )
 }
 
-export async function getServerSideProps({query}){
+interface PostContextI extends NextPageContext{
+    query:{
+        id:string
+    }
+}
+
+export async function getServerSideProps({query}:PostContextI){
 
     try {
         const res=await  fetch(`https://jsonplaceholder.typicode.com/users/${query.id}`)
