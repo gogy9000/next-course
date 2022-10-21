@@ -12,9 +12,10 @@ export default function ({user}) {
     )
 }
 
-export async function getServerSideProps(context){
+export async function getServerSideProps({query}){
+
     try {
-        const res=await  fetch(`https://jsonplaceholder.typicode.com/users/${context.query.id}`)
+        const res=await  fetch(`https://jsonplaceholder.typicode.com/users/${query.id}`)
         const user=await res.json()
         return{
             props:{user}

@@ -1,8 +1,7 @@
-import Navigation from "../component/navigation";
-import {useEffect, useState} from "react";
 import Link from "next/link";
 import style from '../styles/users.module.scss'
 import MainContainer from '../component/MainContainer'
+
 const Users = ({users}) => {
 
     return (
@@ -12,7 +11,7 @@ const Users = ({users}) => {
             <ul>
                 {
                     users.map(user => <li key={user.id}>
-                            <Link href={`/users/${user.id}`}>
+                            <Link href={`/users/[id]`} as={`users/${user.id}`}>
                                 <a>
                                     {user.name}
                                 </a>
@@ -28,7 +27,7 @@ const Users = ({users}) => {
 
 export default Users;
 
-export async function getStaticProps(context){
+export async function getStaticProps(){
     try {
         const res=await  fetch(`https://jsonplaceholder.typicode.com/users`)
         const users=await res.json()

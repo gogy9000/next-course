@@ -2,7 +2,7 @@ import MainContainer from '../component/MainContainer'
 
 const Index = () => {
     return (
-            <MainContainer>
+            <MainContainer keywords={'atata'}>
                 <h1>azaza</h1>
             </MainContainer>
     );
